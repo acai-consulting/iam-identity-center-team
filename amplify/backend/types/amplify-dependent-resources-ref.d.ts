@@ -38,13 +38,6 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "team06dbb7fcPreTokenGeneration": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
     "teamGetPermissionSets": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
@@ -98,6 +91,13 @@ export type AmplifyDependentResourcesAttributes = {
       "Region": "string"
     },
     "teamgetEntitlement": {
+      "Arn": "string",
+      "LambdaExecutionRole": "string",
+      "LambdaExecutionRoleArn": "string",
+      "Name": "string",
+      "Region": "string"
+    },
+    "teamgetGroups": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",

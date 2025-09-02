@@ -50,7 +50,6 @@ def publishPolicy(result):
                 approvalRequired
                 duration
             }
-            username
             }
         }
             """
@@ -109,7 +108,6 @@ def get_entitlements(id):
 def handler(event, context):
     userId = event["userId"]
     groupIds = event["groupIds"]
-    username = event["username"]
     eligibility = []
     maxDuration = 0
     
@@ -136,7 +134,7 @@ def handler(event, context):
         policy["approvalRequired"] = entitlement["Item"]["approvalRequired"]
         policy["duration"] = str(maxDuration)
         eligibility.append(policy)
-    result = {"id": event["id"], "policy": eligibility, "username":username}
+    result = {"id": event["id"], "policy": eligibility}
     print(result)
 
     return publishPolicy(result)

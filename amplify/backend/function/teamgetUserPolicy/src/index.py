@@ -5,15 +5,16 @@ import boto3
 
 
 def handler(event, context):
+  print('received event:')
+  print(event)
   userId = event["arguments"]["userId"]
   groupIds = event["arguments"]["groupIds"]
-  username = event["identity"]["username"]
   
   generated_uuid = str(uuid.uuid4())
  
   lambda_client = boto3.client('lambda')
   
-  payload = {"id": generated_uuid, "userId": userId, "groupIds": groupIds, "username":username}
+  payload = {"id": generated_uuid, "userId": userId, "groupIds": groupIds}
 
   print(json.dumps(payload))
 
@@ -27,5 +28,4 @@ def handler(event, context):
 
   return {
     'id': generated_uuid,
-    'username': username
     }

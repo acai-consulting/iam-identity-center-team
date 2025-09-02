@@ -272,7 +272,6 @@ export const getSettings = /* GraphQL */ `
       sesNotificationsEnabled
       snsNotificationsEnabled
       slackNotificationsEnabled
-      slackAuditNotificationsChannel
       sesSourceEmail
       sesSourceArn
       slackToken
@@ -302,7 +301,6 @@ export const listSettings = /* GraphQL */ `
         sesNotificationsEnabled
         snsNotificationsEnabled
         slackNotificationsEnabled
-        slackAuditNotificationsChannel
         sesSourceEmail
         sesSourceArn
         slackToken
@@ -431,6 +429,16 @@ export const getMgmtPermissions = /* GraphQL */ `
     }
   }
 `;
+export const getGroups = /* GraphQL */ `
+  query GetGroups {
+    getGroups {
+      groups
+      userId
+      groupIds
+      __typename
+    }
+  }
+`;
 export const getIdCGroups = /* GraphQL */ `
   query GetIdCGroups {
     getIdCGroups {
@@ -479,7 +487,6 @@ export const getUserPolicy = /* GraphQL */ `
         duration
         __typename
       }
-      username
       __typename
     }
   }
