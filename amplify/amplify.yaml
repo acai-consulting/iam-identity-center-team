@@ -1,0 +1,32 @@
+version: 1
+backend:
+  phases:
+    preBuild:
+      commands:
+        - echo "Installing Python 3.10 via pyenv"
+        - curl https://pyenv.run | bash
+        - export PATH="$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH"
+        - eval "$(pyenv init -)"
+        - eval "$(pyenv virtualenv-init -)"
+        - pyenv install 3.10.13
+        - pyenv global 3.10.13
+        - pip install pipenv
+    build:
+      commands:
+        - echo "Backend build complete"
+
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
